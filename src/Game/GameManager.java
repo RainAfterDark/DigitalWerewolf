@@ -1,22 +1,16 @@
 package Game;
 
+import Forms.MainFrame;
 import Roles.*;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class GameManager {
-    private final List<Player> players = new ArrayList<>(
-        List.of(
-            new Player("Player 1"),
-            new Player("Player 2"),
-            new Player("Player 3")
-        )
-    );
-    private final Map<RoleType, Integer> roleCount = Map.of(
-        RoleType.VILLAGER, 1,
-        RoleType.WEREWOLF, 1,
-        RoleType.SEER, 1
-    );
+    private final List<Player> players = new ArrayList<>();
+    private final Map<RoleType, Integer> roleCount = new HashMap<>();
     private final Map<Integer, List<Event>> events = new HashMap<>();
     private int currentNight = 0;
 
@@ -119,14 +113,11 @@ public class GameManager {
     }
 
     private void render() {
-        // JFrame stuff goes here
+        MainFrame mainFrame = new MainFrame(players);
+        mainFrame.setVisible(true);
     }
 
     public void run() {
-        assignRoles();
-        showRoles();
-        gameLoop();
-
         render();
     }
 }

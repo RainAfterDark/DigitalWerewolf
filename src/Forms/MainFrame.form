@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Forms.MainFrame">
+  <grid id="27dc6" binding="MainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="500"/>
+    </constraints>
+    <properties>
+      <maximumSize width="500" height="500"/>
+      <minimumSize width="500" height="500"/>
+      <preferredSize width="500" height="500"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="35c3f" binding="leftSidePanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints border-constraint="West"/>
+        <properties/>
+        <border type="line">
+          <color color="-16777216"/>
+        </border>
+        <children>
+          <grid id="4d32b" binding="PlayersListPanel" layout-manager="BorderLayout" hgap="0" vgap="20">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="1" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <preferredSize width="300" height="200"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="ee968" class="javax.swing.JTextField" binding="playerName">
+                <constraints border-constraint="North"/>
+                <properties>
+                  <preferredSize width="50" height="35"/>
+                  <toolTipText value="Add Player's Name"/>
+                  <verifyInputWhenFocusTarget value="true"/>
+                </properties>
+                <clientProperties>
+                  <html.disable class="java.lang.Boolean" value="false"/>
+                </clientProperties>
+              </component>
+              <grid id="5aa27" binding="AddRemovePanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints border-constraint="East"/>
+                <properties>
+                  <minimumSize width="100" height="50"/>
+                  <preferredSize width="85" height="50"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="52530" class="javax.swing.JButton" binding="deletePlayerButton">
+                    <constraints/>
+                    <properties>
+                      <actionCommand value="&lt;html&gt;Remove&lt;br&gt;Player&lt;/html&gt;"/>
+                      <alignmentY value="0.0"/>
+                      <hideActionText value="false"/>
+                      <label value="&lt;html&gt;Remove&lt;br&gt;Player&lt;/html&gt;&#10;"/>
+                      <preferredSize width="80" height="50"/>
+                      <selected value="false"/>
+                      <text value="&lt;html&gt;Remove&lt;br&gt;Player&lt;/html&gt;&#10;"/>
+                    </properties>
+                  </component>
+                  <component id="94205" class="javax.swing.JButton" binding="editPlayerNameButton" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <alignmentY value="0.0"/>
+                      <label value="&lt;html&gt;Edit&lt;br&gt;Name&lt;/html&gt;"/>
+                      <preferredSize width="80" height="50"/>
+                      <text value="&lt;html&gt;Edit&lt;br&gt;Name&lt;/html&gt;"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="7af4f" binding="PlayersNamesListPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="a3632" class="javax.swing.JList" binding="playersListDisplay">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <enabled value="true"/>
+                      <layoutOrientation value="1"/>
+                      <maximumSize width="20" height="20"/>
+                      <model/>
+                      <preferredSize width="20" height="20"/>
+                      <selectionMode value="0"/>
+                      <valueIsAdjusting value="true"/>
+                    </properties>
+                    <clientProperties>
+                      <List.isFileList class="java.lang.Boolean" value="true"/>
+                    </clientProperties>
+                  </component>
+                  <component id="de378" class="javax.swing.JLabel" binding="playersLabel">
+                    <constraints border-constraint="North"/>
+                    <properties>
+                      <labelFor value="ee968"/>
+                      <preferredSize width="150" height="17"/>
+                      <text value="Players:"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="b1370" binding="RolesListPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="100"/>
+              </grid>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="6949c" binding="werewolvesCounterPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="beadc" class="javax.swing.JCheckBox" binding="normalWerewolfCheckBox" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Normal Werewolf"/>
+                    </properties>
+                  </component>
+                  <component id="55e86" class="javax.swing.JCheckBox" binding="avengingWerewolfCheckBox" default-binding="true">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Avenging Werewolf"/>
+                    </properties>
+                  </component>
+                  <component id="5b1eb" class="javax.swing.JCheckBox" binding="silencingWerewolfCheckBox" default-binding="true">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Silencing Werewolf"/>
+                    </properties>
+                  </component>
+                  <component id="545d0" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="97a25" class="javax.swing.JSpinner" binding="spinner2" default-binding="true">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="7fea1" class="javax.swing.JSpinner" binding="spinner3" default-binding="true">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                </children>
+              </grid>
+              <grid id="67671" binding="villagersCounterPanel" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="5a6da" class="javax.swing.JCheckBox" binding="seerCheckBox" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Seer"/>
+                    </properties>
+                  </component>
+                  <component id="e5c56" class="javax.swing.JCheckBox" binding="medicCheckBox" default-binding="true">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Medic"/>
+                    </properties>
+                  </component>
+                  <component id="d0c85" class="javax.swing.JCheckBox" binding="bestfriendsCheckBox" default-binding="true">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Bestfriends"/>
+                    </properties>
+                  </component>
+                  <component id="dc14f" class="javax.swing.JCheckBox" binding="clonedCheckBox" default-binding="true">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Cloned"/>
+                    </properties>
+                  </component>
+                  <component id="75008" class="javax.swing.JCheckBox" binding="hoboCheckBox" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Hobo"/>
+                    </properties>
+                  </component>
+                  <component id="afa03" class="javax.swing.JSpinner" binding="spinner4" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="6c4" class="javax.swing.JSpinner" binding="spinner5" default-binding="true">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="cc764" class="javax.swing.JSpinner" binding="spinner6" default-binding="true">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="187bf" class="javax.swing.JSpinner" binding="spinner7" default-binding="true">
+                    <constraints>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="f1bb4" class="javax.swing.JSpinner" binding="spinner8" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                </children>
+              </grid>
+              <component id="28f27" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Snell Roundhand"/>
+                  <text value="Werewolves"/>
+                </properties>
+              </component>
+              <component id="339f1" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Apple Chancery"/>
+                  <text value="Villagers"/>
+                </properties>
+              </component>
+              <component id="2c8f1" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Roles Builder"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="deb91" binding="DisplayPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints border-constraint="East"/>
+        <properties/>
+        <border type="none"/>
+        <children/>
+      </grid>
+    </children>
+  </grid>
+</form>
