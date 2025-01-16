@@ -1,7 +1,7 @@
 package Roles;
 
-public enum RoleType {
+public enum RoleSide {
     VILLAGER,
     WEREWOLF,
-    SEER,
+    NEUTRAL
 }

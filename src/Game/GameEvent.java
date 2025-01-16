@@ -1,6 +1,6 @@
 package Game;
 
-public class Event {
+public class GameEvent {
     private final boolean secret;
     private final String message;
 
@@ -12,7 +12,7 @@ public class Event {
         return message;
     }
 
-    public Event(String message, boolean secret) {
+    public GameEvent(String message, boolean secret) {
         this.message = message;
         this.secret = secret;
     }
