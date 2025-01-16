@@ -2,10 +2,13 @@ package Forms;
 import Game.Player;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainFrame extends JFrame {
     private JPanel MainPanel;
+
     private JPanel leftSidePanel;
     private JPanel PlayersListPanel;
     private JPanel RolesListPanel;
@@ -17,34 +20,36 @@ public class MainFrame extends JFrame {
     private JLabel playersLabel;
     private JPanel PlayersNamesListPanel;
     private JCheckBox normalWerewolfCheckBox;
-    private JCheckBox avengingWerewolfCheckBox;
+    private JCheckBox werewolfCubCheckBox;
     private JCheckBox silencingWerewolfCheckBox;
-    private JSpinner spinner1;
-    private JSpinner spinner2;
-    private JSpinner spinner3;
+    private JSpinner werewolfCountSpinner;
+    private JSpinner werewolfCubCountSpinner;
+    private JSpinner SwerewolfCountSpinner;
     private JPanel werewolvesCounterPanel;
     private JPanel villagersCounterPanel;
     private JCheckBox seerCheckBox;
     private JCheckBox medicCheckBox;
     private JCheckBox bestfriendsCheckBox;
-    private JCheckBox clonedCheckBox;
-    private JCheckBox hoboCheckBox;
-    private JSpinner spinner4;
-    private JSpinner spinner5;
-    private JSpinner spinner6;
-    private JSpinner spinner7;
-    private JSpinner spinner8;
+    private JCheckBox preacherCheckBox;
+    private JCheckBox jesterCheckBox;
+    private JSpinner seerCountSpinner;
+    private JSpinner medicCountSpinner;
+    private JSpinner bestfriendsCountSpinner;
+    private JSpinner preacherCountSpinner;
+    private JSpinner jesterCountSpinner;
     private JPanel DisplayPanel;
+    private JButton startGameButton;
+    private JLabel playerCountDisplay;
+    private JPanel fancyDisplay;
 
     public MainFrame(List<Player> players) {
         setContentPane(MainPanel);
         setTitle("THE DIGITAL WEREWOLF");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(500, 500);
+        setSize(1000, 650);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
-
         DefaultListModel<String> playerListModel = new DefaultListModel<>();
 
         playerName.addActionListener(_ -> {
@@ -52,6 +57,7 @@ public class MainFrame extends JFrame {
             if (!name.isEmpty()) {
                 players.add(new Player(name));
                 playerListModel.addElement(name);
+                playerCountDisplay.setText("Count: " + playerListModel.getSize());
                 playerName.setText("");
             }
         });
@@ -73,8 +79,62 @@ public class MainFrame extends JFrame {
                     players.set(selectedPlayer, new Player(updatedName));
                     playerListModel.setElementAt(updatedName, selectedPlayer);
                 }
-            }else { JOptionPane.showMessageDialog(MainFrame.this, "No Player selected.", "Error", JOptionPane.ERROR_MESSAGE);}
+            } else { JOptionPane.showMessageDialog(MainFrame.this, "No Player selected.", "Error", JOptionPane.ERROR_MESSAGE);}
         });
+
+        startGameButton.addActionListener(ActionEvent_ -> {
+            //randomizes the roles, starts the game
+        });
+        //-----Role Pool-----
+        List<String> rolePool = new ArrayList<>();
+
+        for (int i = 0; i <= players.size() ; i++){
+            //-----Werewolves-----
+            if (normalWerewolfCheckBox.isSelected()) {
+                for (int j = 0; j <= (Integer) werewolfCountSpinner.getValue(); j++) {
+                    rolePool.add("Werewolf");
+                }
+            }
+            if (werewolfCubCheckBox.isSelected()){
+                for (int j = 0; j <= (Integer) werewolfCubCountSpinner.getValue(); j++) {
+                    rolePool.add("Werewolf Cub");
+                }
+            }
+            if (silencingWerewolfCheckBox.isSelected()) {
+                for (int j = 0; j <= (Integer) SwerewolfCountSpinner.getValue(); j++) {
+                    rolePool.add("Werewolf Cub");
+                }
+            }
+                //----- Villagers-----
+            if (seerCheckBox.isSelected()){
+                for (int j = 0; j <= (Integer) seerCountSpinner.getValue(); j++){
+                    rolePool.add("Seer");
+                }
+            }
+            if (medicCheckBox.isSelected()){
+                for (int j = 0; j <= (Integer) medicCountSpinner.getValue(); j++){
+                    rolePool.add("Medic");
+                }
+            }
+            if (bestfriendsCheckBox.isSelected()){
+                for (int j = 0; j <= (Integer) bestfriendsCountSpinner.getValue(); j++){
+                    rolePool.add("Bestfriends");
+                    rolePool.add("Bestfriends");
+                }
+            }
+            if (preacherCheckBox.isSelected()){
+                for (int j = 0; j <= (Integer) preacherCountSpinner.getValue(); j++){
+                    rolePool.add("Preacher");
+                }
+            }
+            if (jesterCheckBox.isSelected()){
+                for (int j = 0; j <= (Integer) jesterCountSpinner.getValue(); j++){
+                    rolePool.add("Jester");
+                }
+            }
+
+        }
+
     }
 
 }
