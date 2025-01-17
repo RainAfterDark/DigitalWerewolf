@@ -13,7 +13,7 @@ public class Helpers {
      * @param nameSnippet a snippet contained in the LookAndFeel's name
      * @return the class name if installed, or null
      */
-    public static String getLookAndFeelClassName(String nameSnippet) {
+    public static @Nullable String getLookAndFeelClassName(String nameSnippet) {
         UIManager.LookAndFeelInfo[] platforms = UIManager.getInstalledLookAndFeels();
         for (UIManager.LookAndFeelInfo info : platforms) {
             if (info.getName().contains(nameSnippet)) {
