@@ -99,7 +99,9 @@ public class RoleManager {
         hoveredRole = roleClazz;
         if (hoveredRole == null) {
             roleImageLabel.setIcon(Helpers.createImageIcon("WerewolfIcon.jpg"));
-            roleDescriptionLabel.setText("Hover over a role to see its description.");
+            roleDescriptionLabel.setText("<html><body style='width: 150px'>" +
+                    "Hover over a role to see its description." +
+                    "</body></html>");
             return;
         }
         if (hoveredRole.isAnnotationPresent(RoleInfo.class)) {
