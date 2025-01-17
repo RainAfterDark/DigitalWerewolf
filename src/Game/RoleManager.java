@@ -76,4 +76,9 @@ public class RoleManager {
         }
         System.out.println();
     }
+
+    public void resetRoles() {
+        rolesPool.clear();
+        initRoleCount();
+    }
 }

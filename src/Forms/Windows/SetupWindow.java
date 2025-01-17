@@ -15,7 +15,7 @@ public class SetupWindow extends JFrame {
     private JPanel leftSidePanel;
     private PlayerList playerList;
     private RolesList rolesList;
-    private JButton startButton;
+    private JButton resetButton;
 
     public SetupWindow(PlayerManager playerManager, RoleManager roleManager) {
         this.playerManager = playerManager;
@@ -26,13 +26,13 @@ public class SetupWindow extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Make sure to adjust this and the preferred size of the mainPanel
         // (so that the preview matches the actual size of the window)
-        setSize(500, 650);
+        setSize(700, 500);
         setLocationRelativeTo(null);
         setResizable(false);
 
-        startButton.addActionListener(_ -> {
-            roleManager.setPlayerRoles();
-            // TODO: Actually start the game
+        resetButton.addActionListener(_ -> {
+            roleManager.resetRoles();
+            rolesList.init();
         });
     }
 

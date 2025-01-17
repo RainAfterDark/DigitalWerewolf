@@ -38,9 +38,18 @@ public class RolesList {
         }
     }
 
+    private void addSeparator(JPanel panel) {
+        panel.add(new JPanel()); // it just works, whatever man
+        panel.add(new JSeparator());
+    }
+
     @SuppressWarnings("BoundFieldAssignment") // fuck you piece of shit
-    private void init() {
-        rolesListPanel = new JPanel();
+    public void init() {
+        if (rolesListPanel != null) {
+            rolesListPanel.removeAll();
+        } else {
+            rolesListPanel = new JPanel();
+        }
         rolesListPanel.setLayout(new GridLayout(0, 1));
 
         rolesPanel = new JPanel();
@@ -48,12 +57,14 @@ public class RolesList {
         rolesPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
         populateRoles(rolesPanel, "Villagers", RoleManager.VILLAGER_ROLES);
-        rolesPanel.add(new JSeparator());
+        addSeparator(rolesPanel);
         populateRoles(rolesPanel, "Werewolves", RoleManager.WEREWOLF_ROLES);
-        rolesPanel.add(new JSeparator());
+        addSeparator(rolesPanel);
         populateRoles(rolesPanel, "Neutrals", RoleManager.NEUTRAL_ROLES);
 
         scrollPane = new JScrollPane(rolesPanel);
         rolesListPanel.add(scrollPane);
+        rolesListPanel.revalidate();
+        rolesListPanel.repaint();
     }
 }
