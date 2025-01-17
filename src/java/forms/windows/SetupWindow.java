@@ -3,6 +3,7 @@ package forms.windows;
 import forms.components.PlayerList;
 import forms.components.RoleDescription;
 import forms.components.RolesList;
+import game.GameManager;
 import game.PlayerManager;
 import game.RoleManager;
 
@@ -21,7 +22,12 @@ public class SetupWindow extends JFrame {
     private RoleDescription roleDescription;
     private JButton startButton;
 
-    public SetupWindow(PlayerManager playerManager, RoleManager roleManager) {
+    // IT IS ABSOLUTELY DIABOLICALLY FUCKED UP THAT #1, NO LINE OF CODE MUST BE CHANGED IN THESE NEXT
+    // THREE LINES FOR SOMETHING NOT TO BREAK, BECAUSE createUIComponents() FOR SOME REASON SEEMS TO BE
+    // RUN BEFORE OR AFTER OR IN PARALLEL OR GOD KNOWS WHAT THE FUCK IS GOING ON IN HERE WITH THIS CTOR.
+    // BUT I HAVE TO PASS playerManager AND roleManager THIS WAY (AND NOT JUST WITH THE GETTERS)
+    // OR ELSE IT BREAKS. LITERALLY WHAT THE FUCK??????????????????????????????????????????????????
+    public SetupWindow(GameManager gameManager, PlayerManager playerManager, RoleManager roleManager) {
         this.playerManager = playerManager;
         this.roleManager = roleManager;
 
@@ -40,7 +46,9 @@ public class SetupWindow extends JFrame {
         });
 
         startButton.addActionListener(_ -> {
-           roleManager.assignRoles();
+            if (!gameManager.canStartGame()) return;
+            gameManager.startGame();
+            dispose();
         });
     }
 

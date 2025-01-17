@@ -73,21 +73,24 @@ public class RoleManager {
                 }
             }
         }
-    }
-
-    public void assignRoles() {
-        fillRolesPool();
-        List<Player> players = playerManager.getPlayers();
-        while (rolesPool.size() < players.size()) {
+        while (rolesPool.size() < playerManager.getPlayers().size()) {
             rolesPool.add(new Villager());
         }
-        Collections.shuffle(rolesPool);
-        for (Player player : players) {
-            player.setRole(rolesPool.removeFirst());
-            // Debugging (TODO: remove)
-            System.out.println(player.getName() + " is a " + player.getRole().getClass().getSimpleName());
+    }
+
+    public boolean validateRoles() {
+        fillRolesPool();
+        if (rolesPool.size() > playerManager.getPlayers().size()) {
+            JOptionPane.showMessageDialog(null,
+                    "Total role count should be less or equal to the number of players.",
+                    "Too Many Roles", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
-        System.out.println();
+        Collections.shuffle(rolesPool);
+        for (Player player : playerManager.getPlayers()) {
+            player.setRole(rolesPool.removeFirst());
+        }
+        return true;
     }
 
     public void resetRoles() {
