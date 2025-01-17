@@ -8,5 +8,5 @@ public @interface RoleInfo {
     String name() default "";
     String winCondition() default "";
     String ability() default "";
-    String lore() default "";
+    String tips() default "";
 }

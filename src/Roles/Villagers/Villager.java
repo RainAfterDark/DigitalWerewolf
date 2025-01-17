@@ -8,9 +8,9 @@ import Roles.RoleSide;
 
 @RoleInfo(
     name = "Villager",
-    winCondition = "You must eliminate all werewolves.",
-    ability = "You have no special abilities.",
-    lore = "You are a regular human being, of no special importance."
+    winCondition = "Eliminate all werewolves.",
+    ability = "None.",
+    tips = "Find the werewolf, and discuss who it may be among others."
 )
 public class Villager extends Role {
     public Villager() {

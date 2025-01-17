@@ -107,11 +107,11 @@ public class RoleManager {
             roleDescriptionLabel.setText(String.format("""
                 <html><body style='width: 150px'>
                     <b>Name</b>: %s<br>
-                    <b>Win Condition</b>: %s<br>
+                    <b>To Win</b>: %s<br>
                     <b>Ability</b>: %s<br>
-                    <b>Lore</b>: %s
+                    <b>Tips</b>: %s
                 </body></html>""",
-                roleInfo.name(), roleInfo.winCondition(), roleInfo.ability(), roleInfo.lore()));
+                roleInfo.name(), roleInfo.winCondition(), roleInfo.ability(), roleInfo.tips()));
         }
         ImageIcon imageIcon = Helpers.createImageIcon(hoveredRole.getSimpleName() + ".jpg");
         if (imageIcon == null) {
