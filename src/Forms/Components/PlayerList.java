@@ -25,7 +25,7 @@ public class PlayerList extends JFrame {
             if (!name.isEmpty()) {
                 players.add(new Player(name));
                 playerListModel.addElement(name);
-                playerCountLabel.setText("Players: " + playerListModel.getSize());
+                playerCountLabel.setText("Count: " + playerListModel.getSize());
                 nameField.setText("");
             }
         });
@@ -36,7 +36,7 @@ public class PlayerList extends JFrame {
             if (index != -1) {
                 players.remove(index);
                 playerListModel.remove(index);
-                playerCountLabel.setText("Players: " + playerListModel.getSize());
+                playerCountLabel.setText("Count: " + playerListModel.getSize());
             }
         });
 

@@ -5,8 +5,8 @@ import Game.PlayerManager;
 import Roles.Role;
 import Roles.RoleSide;
 
-public class SilencingWerewolf extends Role {
-    public SilencingWerewolf() {
+public class Werewolf extends Role {
+    public Werewolf() {
         super(RoleSide.WEREWOLF);
     }
 

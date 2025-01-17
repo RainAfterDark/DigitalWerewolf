@@ -1,6 +1,7 @@
 package Forms.Windows;
 
 import Forms.Components.PlayerList;
+import Forms.Components.RoleDescription;
 import Forms.Components.RolesList;
 import Game.PlayerManager;
 import Game.RoleManager;
@@ -16,6 +17,9 @@ public class SetupWindow extends JFrame {
     private PlayerList playerList;
     private RolesList rolesList;
     private JButton resetButton;
+    private JPanel rightSidePanel;
+    private RoleDescription roleDescription;
+    private JButton startButton;
 
     public SetupWindow(PlayerManager playerManager, RoleManager roleManager) {
         this.playerManager = playerManager;
@@ -26,7 +30,7 @@ public class SetupWindow extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Make sure to adjust this and the preferred size of the mainPanel
         // (so that the preview matches the actual size of the window)
-        setSize(700, 500);
+        setSize(550, 500);
         setLocationRelativeTo(null);
         setResizable(false);
 
@@ -34,10 +38,15 @@ public class SetupWindow extends JFrame {
             roleManager.resetRoles();
             rolesList.init();
         });
+
+        startButton.addActionListener(_ -> {
+           roleManager.assignRoles();
+        });
     }
 
     private void createUIComponents() {
         playerList = new PlayerList(playerManager);
+        roleDescription = new RoleDescription(roleManager);
         rolesList = new RolesList(roleManager);
     }
 }

@@ -2,7 +2,6 @@ package Forms.Components;
 
 import Game.RoleManager;
 import Roles.Role;
-import Util.Helpers;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -28,12 +27,10 @@ public class RolesList {
         panel.add(new JTextField(roleSide) {{
             setEditable(false);
             setBorder(BorderFactory.createEmptyBorder());
-            setFont(new Font("Arial", Font.BOLD, 14));
+            setFont(new Font("Arial", Font.BOLD, 12));
         }});
         for (Class<? extends Role> role : roles) {
-            RoleSpinner roleSpinner = new RoleSpinner(Helpers.pascalCaseToSpacedString(role.getSimpleName()));
-            roleSpinner.getSpinner().addChangeListener(_ ->
-                    roleManager.getRolesCount().put(role, (int) roleSpinner.getSpinner().getValue()));
+            RoleSpinner roleSpinner = new RoleSpinner(role, roleManager);
             panel.add(roleSpinner.getRoleSpinnerPanel());
         }
     }

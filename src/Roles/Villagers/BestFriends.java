@@ -1,13 +1,13 @@
-package Roles.Werewolves;
+package Roles.Villagers;
 
 import Game.GameEvent;
 import Game.PlayerManager;
 import Roles.Role;
 import Roles.RoleSide;
 
-public class SilencingWerewolf extends Role {
-    public SilencingWerewolf() {
-        super(RoleSide.WEREWOLF);
+public class BestFriends extends Role {
+    public BestFriends() {
+        super(RoleSide.VILLAGER);
     }
 
     @Override

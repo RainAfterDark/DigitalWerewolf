@@ -1,22 +1,20 @@
 package Roles;
 
 import Game.GameEvent;
-import Game.Player;
+import Game.PlayerManager;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
+@Getter
 public abstract class Role {
-    @Getter
     private final RoleSide side;
-    @Getter @Setter
+    @Setter
     private boolean alive = true;
 
     protected Role(RoleSide side) {
         this.side = side;
     }
 
-    public abstract boolean winCondition(List<Player> players);
-    public abstract GameEvent useAbility(List<Player> players);
+    public abstract boolean winCondition(PlayerManager playerManager);
+    public abstract GameEvent useAbility(PlayerManager playerManager);
 }

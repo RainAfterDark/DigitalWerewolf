@@ -1,6 +1,9 @@
 package Util;
 
+import org.jetbrains.annotations.Nullable;
+
 import javax.swing.*;
+import java.net.URL;
 
 public class Helpers {
     /**
@@ -30,5 +33,14 @@ public class Helpers {
             result.append(c);
         }
         return result.toString();
+    }
+
+    public static @Nullable ImageIcon createImageIcon(String name) {
+        @Nullable URL url = ClassLoader.getSystemResource(name);
+        return url == null ? null : new ImageIcon(url);
+    }
+
+    public static int clamp(int value, int min, int max) {
+        return Math.min(Math.max(value, min), max);
     }
 }

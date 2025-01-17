@@ -1,11 +1,9 @@
 package Roles.Werewolves;
 
 import Game.GameEvent;
-import Game.Player;
+import Game.PlayerManager;
 import Roles.Role;
 import Roles.RoleSide;
-
-import java.util.List;
 
 public class WerewolfCub extends Role {
     public WerewolfCub() {
@@ -13,12 +11,12 @@ public class WerewolfCub extends Role {
     }
 
     @Override
-    public boolean winCondition(List<Player> players) {
+    public boolean winCondition(PlayerManager playerManager) {
         return false;
     }
 
     @Override
-    public GameEvent useAbility(List<Player> players) {
+    public GameEvent useAbility(PlayerManager playerManager) {
         return null;
     }
 }
