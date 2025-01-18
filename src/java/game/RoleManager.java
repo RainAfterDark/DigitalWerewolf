@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.jetbrains.annotations.Nullable;
 import roles.Role;
 import roles.RoleInfo;
+import roles.RoleSide;
 import roles.neutrals.Jester;
 import roles.villagers.*;
 import roles.werewolves.SilencingWerewolf;
@@ -36,6 +37,7 @@ public class RoleManager {
     @Getter
     private final Map<Class<? extends Role>, Integer> rolesCount = new HashMap<>();
     private final List<Role> rolesPool = new ArrayList<>();
+    private final GameManager gameManager;
     private final PlayerManager playerManager;
 
     @Getter @Nullable
@@ -45,8 +47,9 @@ public class RoleManager {
     @Getter @Setter
     private JLabel roleDescriptionLabel;
 
-    public RoleManager(PlayerManager playerManager) {
-        this.playerManager = playerManager;
+    public RoleManager(GameManager gameManager) {
+        this.gameManager = gameManager;
+        this.playerManager = gameManager.getPlayerManager();
         initRoleCount();
     }
 
@@ -86,11 +89,34 @@ public class RoleManager {
                     "Too Many Roles", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+        if (playerManager.getPlayersBySide(RoleSide.WEREWOLF).isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+                    "There should be at least one werewolf.",
+                    "No Werewolves", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (playerManager.getPlayersBySide(RoleSide.WEREWOLF).size() > playerManager.getPlayers().size() / 2) {
+            JOptionPane.showMessageDialog(null,
+                    "Number of werewolves should be less than or equal to half of the players.",
+                    "Too Many Werewolves", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         Collections.shuffle(rolesPool);
         for (Player player : playerManager.getPlayers()) {
-            player.setRole(rolesPool.removeFirst());
+            player.bindRole(rolesPool.removeFirst());
+        }
+        for (Player player : playerManager.getPlayers()) {
+            if (!player.getRole().validateRole(gameManager)) {
+                return false;
+            }
         }
         return true;
+    }
+
+    public void onGameStart() {
+        for (Player player : playerManager.getPlayers()) {
+            player.getRole().onGameStart(gameManager);
+        }
     }
 
     public void resetRoles() {

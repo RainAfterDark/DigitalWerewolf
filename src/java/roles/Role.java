@@ -1,20 +1,32 @@
 package roles;
 
-import game.GameEvent;
-import game.PlayerManager;
+import game.GameManager;
+import game.Player;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 public abstract class Role {
+    @Getter
     private final RoleSide side;
-    @Setter
+    @Getter @Setter
     private boolean alive = true;
+    @Getter(AccessLevel.PROTECTED)
+    private Player player;
+
+    public void bindPlayer(Player player) {
+        if (this.player != null) return;
+        this.player = player;
+    }
 
     protected Role(RoleSide side) {
         this.side = side;
     }
 
-    public abstract boolean winCondition(PlayerManager playerManager);
-    public abstract GameEvent useAbility(PlayerManager playerManager);
+    public boolean validateRole(GameManager gameManager) {
+        return true;
+    }
+
+    public void onGameStart(GameManager gameManager) {
+    }
 }

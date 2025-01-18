@@ -12,7 +12,7 @@ public class GameManager {
 
     public GameManager() {
         playerManager = new PlayerManager();
-        roleManager = new RoleManager(playerManager);
+        roleManager = new RoleManager(this);
     }
 
     public boolean canStartGame() {
@@ -27,6 +27,7 @@ public class GameManager {
 
     public void startGame() {
         playerManager.shufflePlayers();
+        roleManager.onGameStart();
     }
 
     public void run() {

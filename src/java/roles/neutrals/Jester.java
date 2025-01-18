@@ -1,7 +1,5 @@
 package roles.neutrals;
 
-import game.GameEvent;
-import game.PlayerManager;
 import roles.Role;
 import roles.RoleInfo;
 import roles.RoleSide;
@@ -16,13 +14,4 @@ public class Jester extends Role {
         super(RoleSide.NEUTRAL);
     }
 
-    @Override
-    public boolean winCondition(PlayerManager playerManager) {
-        return false;
-    }
-
-    @Override
-    public GameEvent useAbility(PlayerManager playerManager) {
-        return null;
-    }
 }

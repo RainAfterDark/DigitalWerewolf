@@ -1,7 +1,5 @@
 package roles.villagers;
 
-import game.GameEvent;
-import game.PlayerManager;
 import roles.Role;
 import roles.RoleInfo;
 import roles.RoleSide;
@@ -17,13 +15,4 @@ public class Villager extends Role {
         super(RoleSide.VILLAGER);
     }
 
-    @Override
-    public boolean winCondition(PlayerManager playerManager) {
-        return false;
-    }
-
-    @Override
-    public GameEvent useAbility(PlayerManager playerManager) {
-        return null;
-    }
 }

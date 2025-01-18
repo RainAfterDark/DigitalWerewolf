@@ -4,10 +4,17 @@ import lombok.Getter;
 import lombok.Setter;
 import roles.Role;
 
-@Getter @Setter
+@Getter
 public class Player {
+    @Setter
     private String name;
     private Role role;
+
+    public void bindRole(Role role) {
+        if (this.role != null) return;
+        this.role = role;
+        role.bindPlayer(this);
+    }
 
     public boolean isAlive() {
         return role.isAlive();

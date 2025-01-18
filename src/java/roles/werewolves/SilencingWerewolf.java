@@ -1,7 +1,5 @@
 package roles.werewolves;
 
-import game.GameEvent;
-import game.PlayerManager;
 import roles.Role;
 import roles.RoleInfo;
 import roles.RoleSide;
@@ -16,13 +14,4 @@ public class SilencingWerewolf extends Role {
         super(RoleSide.WEREWOLF);
     }
 
-    @Override
-    public boolean winCondition(PlayerManager playerManager) {
-        return false;
-    }
-
-    @Override
-    public GameEvent useAbility(PlayerManager playerManager) {
-        return null;
-    }
 }
