@@ -89,6 +89,10 @@ public class RoleManager {
                     "Too Many Roles", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+        Collections.shuffle(rolesPool);
+        for (Player player : playerManager.getPlayers()) {
+            player.bindRole(rolesPool.removeFirst());
+        }
         if (playerManager.getPlayersBySide(RoleSide.WEREWOLF).isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "There should be at least one werewolf.",
@@ -101,10 +105,6 @@ public class RoleManager {
                     "Too Many Werewolves", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        Collections.shuffle(rolesPool);
-        for (Player player : playerManager.getPlayers()) {
-            player.bindRole(rolesPool.removeFirst());
-        }
         for (Player player : playerManager.getPlayers()) {
             if (!player.getRole().validateRole(gameManager)) {
                 return false;
@@ -116,6 +116,20 @@ public class RoleManager {
     public void onGameStart() {
         for (Player player : playerManager.getPlayers()) {
             player.getRole().onGameStart(gameManager);
+        }
+    }
+
+    public void showRoles() {
+        JOptionPane.showMessageDialog(null,
+                "Roles will be shown now.",
+                "Game Started", JOptionPane.INFORMATION_MESSAGE);
+        for (Player player : playerManager.getPlayers()) {
+            JOptionPane.showMessageDialog(null,
+                    String.format("Pass this to %s.", player.getName()),
+                    "Your Role", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,
+                    String.format("You are a %s.", player.getRole().getClass().getSimpleName()),
+                    "Role", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

@@ -28,6 +28,7 @@ public class GameManager {
     public void startGame() {
         playerManager.shufflePlayers();
         roleManager.onGameStart();
+        roleManager.showRoles();
     }
 
     public void run() {
