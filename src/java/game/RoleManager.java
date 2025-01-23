@@ -58,7 +58,8 @@ public class RoleManager {
             rolesCount.put(role, 0);
         }
         for (Class<? extends Role> role : WEREWOLF_ROLES) {
-            rolesCount.put(role, 0);
+            int value = role == Werewolf.class ? 1 : 0;
+            rolesCount.put(role, value);
         }
         for (Class<? extends Role> role : NEUTRAL_ROLES) {
             rolesCount.put(role, 0);

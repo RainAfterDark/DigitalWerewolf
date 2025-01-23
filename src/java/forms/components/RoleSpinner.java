@@ -4,6 +4,7 @@ import game.RoleManager;
 import lombok.Getter;
 import roles.Role;
 import roles.villagers.BestFriends;
+import roles.werewolves.Werewolf;
 import util.Helpers;
 
 import javax.swing.*;
@@ -22,7 +23,8 @@ public class RoleSpinner {
         nameLabel.setText(Helpers.pascalCaseToSpacedString(roleClazz.getSimpleName()));
         // Even step size for BestFriends, odd for others
         int stepSize = roleClazz == BestFriends.class ? 2 : 1;
-        spinner.setModel(new SpinnerNumberModel(0, 0, 10, stepSize));
+        int value = roleClazz == Werewolf.class ? 1 : 0; // Default 1 Werewolf
+        spinner.setModel(new SpinnerNumberModel(value, 0, 10, stepSize));
 
         spinner.addChangeListener(_ -> {
             spinner.setValue(Helpers.clamp((int) spinner.getValue(), 0, 10));
