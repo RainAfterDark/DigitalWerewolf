@@ -127,7 +127,7 @@ public class RoleManager {
         for (Player player : playerManager.getPlayers()) {
             JOptionPane.showMessageDialog(null,
                     String.format("Pass this to %s.", player.getName()),
-                    "Your Role", JOptionPane.INFORMATION_MESSAGE);
+                    "sRole", JOptionPane.INFORMATION_MESSAGE);
             JOptionPane.showMessageDialog(null,
                     String.format("You are a %s.", player.getRole().getClass().getSimpleName()),
                     "Role", JOptionPane.INFORMATION_MESSAGE);

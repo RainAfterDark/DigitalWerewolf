@@ -6,6 +6,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.swing.*;
+
 public abstract class Role {
     @Getter
     private final RoleSide side;
@@ -28,5 +30,17 @@ public abstract class Role {
     }
 
     public void onGameStart(GameManager gameManager) {
+    }
+
+    public void onNightAction(GameManager gameManager) {
+        JOptionPane.showMessageDialog(null,
+                "No ability.", "Ability", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public boolean onCheckWinCondition(GameManager gameManager) {
+        //return switch (getSide()) {
+            //case VILLAGER -> gameManager.getPlayerManager()
+        //}
+        return false;
     }
 }
